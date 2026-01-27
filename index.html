@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
@@ -42,9 +42,54 @@
        </div>
    </section>
    <section class="info">
-        <h1>hello</h1>
-   </section>
+    <h1>Important Information</h1>
+    <p>This section is below the detector. You can put additional tips, safety info, or instructions here. It will always have a white background and full viewport height.</p>
+</section>
 
    <script src="script.js"></script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verity | AI Identity Protection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <section class="header">
+    <h1>Verity</h1>
+    <div class="instructions">
+      <h2>How to use Verity</h2>
+      <ol>
+        <li>Copy a suspicious email or text message you received.</li>
+        <li>Scroll down to the <strong>Verity Detector</strong>.</li>
+        <li>Paste the text into the analysis box.</li>
+        <li>Our AI will check for <strong>Identity Theft</strong> patterns.</li>
+        <li>Get an instant safety rating and protection tips.</li>
+      </ol>
+    </div>
+    <h3>↓ scroll to learn more ↓</h3>
+  </section>
+
+  <!-- Detector -->
+  <section class="detector-page">
+    <textarea id="userInput" placeholder="Paste suspicious message here..."></textarea>
+    <button class="analyze-btn" onclick="analyzeText()">Analyze for Threats</button>
+    <div id="result"></div>
+  </section>
+
+  <!-- Info Section (NEW) -->
+  <section class="info">
+    <h1>Important Information</h1>
+    <p>This section is below the detector. You can put additional tips, safety info, or instructions here. It will always have a white background and full viewport height.</p>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
