@@ -1,3 +1,8 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+
 :root {
     --olive-petal: #A3A380;
     --golden-clover: #D7CE93;
@@ -11,13 +16,9 @@
  body {
     font-family: 'Nunito', sans-serif;
     margin: 0;
-    background-color: var(--olive-petal); /* Base background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
- }
+    background-color: var(--olive-petal);
+  }
+  
  
  
  /* Moving Dots now cover the WHOLE background */
@@ -127,4 +128,23 @@
     text-align: center;
     color: var(--text-dark);
  }
- 
+
+ .info {
+    background: white;
+    color: #111;
+    flex-direction: column;
+    padding: 80px 40px;
+  }
+  
+  .info h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .info p {
+    max-width: 700px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
