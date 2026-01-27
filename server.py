@@ -1,4 +1,3 @@
-# server.py
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -15,22 +14,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Serve static frontend files
-app.mount("/", StaticFiles(directory=".", html=True), name="static")
-
 # Request schema
 class TextRequest(BaseModel):
     text: str
 
-# Load model once
 print("🔥 Loading phishbot/ScamLLM model... this may take a minute 🔥")
 pipe = pipeline("text-classification", model="phishbot/ScamLLM")
 print("✅ Model loaded!")
 
+# API ROUTE FIRST
 @app.post("/analyze")
 def analyze_text(req: TextRequest):
     text = req.text.strip()
     if not text:
         raise HTTPException(status_code=400, detail="No text provided")
-    results = pipe(text)
-    return results
+    return pipe(text)
+
+# STATIC FILES LAST (IMPORTANT)
+app.mount("/", StaticFiles(directory=".", html=True), name="static")
