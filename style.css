@@ -149,51 +149,52 @@
    text-align: center;
 }*/
 
-/* Smooth scrolling */
 html {
    scroll-behavior: smooth;
-}
-
-/* Color variables */
-:root {
+ }
+ 
+ :root {
    --olive-petal: #A3A380;
    --golden-clover: #D7CE93;
    --artic-daisy: #EFEBCE;
    --rose-blush: #D8A48F;
    --peach-blossom: #BB8588;
    --text-dark: #4A4A3A;
-}
-
-/* Body */
-body {
+ }
+ 
+ body {
    font-family: 'Nunito', sans-serif;
    margin: 0;
    background-color: var(--olive-petal);
+   overflow-x: hidden; /* This stays */
+   width: 100%;        /* Add this */
+   min-height: 100vh;
    position: relative;
-   overflow-x: hidden;
-}
-
-/* Moving dots background */
-body::before {
+ }
+ 
+ body::before {
    content: '';
-   position: absolute;
-   width: 200%;
-   height: 200%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;   /* Change to 100vw */
+   height: 100vh;  /* Change to 100vh */
    background-image: radial-gradient(var(--artic-daisy) 2px, transparent 2px);
    background-size: 40px 40px;
    animation: moveDots 20s linear infinite;
    opacity: 0.2;
    z-index: -1;
-}
+   pointer-events: none; /* Add this so it doesn't interfere with clicks */
+ }
+ 
+ @keyframes moveDots {
+   0% { transform: translate(0,0); }
+   100% { transform: translate(40px,40px); }
+ }
 
-@keyframes moveDots {
-   0% { transform: translate(0, 0); }
-   100% { transform: translate(40px, 40px); }
-}
-
-/* All sections stacked vertically */
-section {
+ section {
    width: 100%;
+   flex-shrink: 0;
    min-height: 100vh;
    display: flex;
    flex-direction: column;
@@ -201,48 +202,37 @@ section {
    align-items: center;
    padding: 60px 20px;
    box-sizing: border-box;
-}
-
-/* Header Section */
-.header {
+ }
+ 
+ /* Header */
+ .header {
    text-align: center;
    color: var(--text-dark);
-}
-
-.header h1 {
+ }
+ 
+ .header h1 {
    font-size: 4rem;
    margin-bottom: 20px;
-}
-
-.header .instructions {
+ }
+ 
+ .header .instructions {
    max-width: 700px;
    text-align: left;
-}
-
-.header ol {
-   padding-left: 20px;
-}
-
-/* Detector Section */
-.detector-page {
+ }
+ 
+ /* Detector */
+ .detector-page {
    background-color: var(--artic-daisy);
    width: 100%;
    display: flex;
    flex-direction: column;
-   align-items: center;
    justify-content: center;
-}
-
-.detector-container {
+   align-items: center;
+ }
+ 
+ textarea {
    width: 100%;
    max-width: 700px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
-
-textarea {
-   width: 100%;
    height: 180px;
    border: 2px solid var(--golden-clover);
    border-radius: 20px;
@@ -251,13 +241,10 @@ textarea {
    box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
    outline: none;
    resize: none;
-}
-
-.buttons {
-   margin-top: 20px;
-}
-
-.analyze-btn {
+   margin-bottom: 20px;
+ }
+ 
+ .analyze-btn {
    background-color: var(--peach-blossom);
    color: white;
    padding: 15px 50px;
@@ -267,23 +254,23 @@ textarea {
    font-size: 1.1rem;
    cursor: pointer;
    transition: all 0.3s;
-}
-
-.analyze-btn:hover {
+ }
+ 
+ .analyze-btn:hover {
    background-color: var(--rose-blush);
    transform: translateY(-3px);
-   box-shadow: 0 10px 20px rgba(187, 133, 136, 0.4);
-}
-
-#result {
+   box-shadow: 0 10px 20px rgba(187,133,136,0.4);
+ }
+ 
+ #result {
    margin-top: 30px;
    font-size: 1.5rem;
    text-align: center;
    color: var(--text-dark);
-}
-
-/* Info Section (New Section Below) */
-.info {
+ }
+ 
+ /* Info Section */
+ .info {
    background-color: white;
    color: #111;
    width: 100%;
@@ -294,16 +281,16 @@ textarea {
    align-items: center;
    padding: 80px 40px;
    box-sizing: border-box;
-}
-
-.info h1 {
+ }
+ 
+ .info h1 {
    font-size: 3rem;
    margin-bottom: 20px;
-}
-
-.info p {
+ }
+ 
+ .info p {
    max-width: 700px;
    font-size: 1.2rem;
    line-height: 1.6;
    text-align: center;
-}
+ } 
