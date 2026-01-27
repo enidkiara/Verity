@@ -12,11 +12,21 @@ html {
     --text-dark: #4A4A3A;
  }
  
- 
+ section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  
+
  body {
     font-family: 'Nunito', sans-serif;
     margin: 0;
     background-color: var(--olive-petal);
+    position: relative;
+    overflow-x: hidden;
   }
   
  
@@ -24,9 +34,6 @@ html {
  /* Moving Dots now cover the WHOLE background */
  body::before {
     content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
     background-image: radial-gradient(var(--artic-daisy) 2px, transparent 2px);
     background-size: 40px 40px;
     animation: moveDots 20s linear infinite;
@@ -130,11 +137,16 @@ html {
  }
 
  .info {
-    background: white;
-    color: #111;
-    flex-direction: column;
-    padding: 80px 40px;
-  }
+   background: white;  
+   color: #111;
+   display: flex;          
+   flex-direction: column;
+   align-items: center;    
+   justify-content: center; 
+   padding: 80px 40px;
+   min-height: 100vh; 
+}
+
   
   .info h1 {
     font-size: 3rem;
@@ -147,4 +159,3 @@ html {
     line-height: 1.6;
     text-align: center;
   }
-  
