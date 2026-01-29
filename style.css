@@ -154,7 +154,6 @@ html {
  .analyze-btn:hover {
    background-color: var(--rose-blush);
    transform: translateY(-3px);
-   box-shadow: 0 10px 20px rgba(187,133,136,0.4);
  }
  
  #result {
@@ -162,10 +161,48 @@ html {
    font-size: 1.5rem;
    text-align: center;
    color: var(--text-dark);
+   background: rgba(255, 255, 255, 0.25);
+   backdrop-filter: blur(6px);
+   -webkit-backdrop-filter: blur(6px);
+   padding: 20px 30px;
+   border-radius: 16px;
+   max-width: 700px;
+   width: 100%;
+   opacity: 0;
+   transform: translateY(10px);
+   transition: all 0.4s ease;
+   position: relative;
  }
  
+ /* Color-coded borders */
+ .safe {
+   border-left: 6px solid var(--olive-petal);
+ }
+ 
+ .warning {
+   border-left: 6px solid var(--rose-blush);
+ }
+ 
+ .danger {
+   border-left: 6px solid var(--peach-blossom);
+ }
+ 
+ /* Loading animation */
+ #loading {
+   font-size: 1.2rem;
+   opacity: 0.7;
+   margin-top: 20px;
+   animation: pulse 1.5s infinite ease-in-out;
+ }
+ 
+ @keyframes pulse {
+   0%, 100% { opacity: 0.4; }
+   50% { opacity: 1; }
+ }
+ 
+ 
  .info {
-   background: white;
+   background: white;  
    padding: 60px 12%;
    min-height: 100vh;
    font-family: 'Nunito', sans-serif;
@@ -181,17 +218,37 @@ html {
  }
  
  .info-block {
-   margin-bottom: 40px;
-   padding-bottom: 10px;
+   background: rgba(190, 190, 190, 0.25);
+   backdrop-filter: blur(6px);
+   -webkit-backdrop-filter: blur(6px);
+   padding: 25px 30px;
+   border-radius: 16px;
+   margin-bottom: 35px;
    transition: transform 0.3s ease, opacity 0.3s ease;
  }
+ 
  
  .info-block h2 {
    font-size: 1.3rem;
    font-weight: 600;
    margin-bottom: 15px;
    color: var(--peach-blossom);
+   position: relative;
+   padding-bottom: 6px;
  }
+
+ .info-block h2::after {
+   content: '';
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 40px;
+   height: 2px;
+   background: var(--peach-blossom);
+   opacity: 0.6;
+   border-radius: 2px;
+ }
+ 
  
  .info-block p,
  .info-block li {
