@@ -15,8 +15,8 @@ html {
    font-family: 'Nunito', sans-serif;
    margin: 0;
    background-color: var(--olive-petal);
-   overflow-x: hidden; /* This stays */
-   width: 100%;        /* Add this */
+   overflow-x: hidden; 
+   width: 100%;      
    min-height: 100vh;
    position: relative;
  }
@@ -26,21 +26,34 @@ html {
    position: fixed;
    top: 0;
    left: 0;
-   width: 100vw;   /* Change to 100vw */
-   height: 100vh;  /* Change to 100vh */
+   width: 100vw;
+   height: 100vh;
    background-image: radial-gradient(var(--artic-daisy) 2px, transparent 2px);
    background-size: 40px 40px;
-   animation: moveDots 20s linear infinite;
+   animation: moveDots 10s linear infinite;
    opacity: 0.2;
    z-index: -1;
    pointer-events: none;
+ }
+ 
+ body::after {
+   content: '';
+   position: fixed;
+   inset: 0;
+   background: linear-gradient(
+     to bottom right,
+     rgba(255,255,255,0.05),
+     rgba(0,0,0,0.05)
+   );
+   pointer-events: none;
+   z-index: -1;
  }
  
  @keyframes moveDots {
    0% { transform: translate(0,0); }
    100% { transform: translate(40px,40px); }
  }
-
+ 
  section {
    width: 100%;
    flex-shrink: 0;
@@ -55,18 +68,51 @@ html {
  
  /* Header */
  .header {
-   text-align: center;
-   color: var(--text-dark);
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
  }
  
+ .header-box {
+   background: rgba(255, 255, 255, 0.25);
+   backdrop-filter: blur(8px);
+   -webkit-backdrop-filter: blur(8px);
+   padding: 15px 40px; 
+   max-width: 1100px; 
+   border-radius: 20px;
+   text-align: center;
+   margin: 0 auto;
+   font-size: 1.3rem;
+   border: 1px solid rgba(255,255,255,0.3);
+ }
+ 
+ @keyframes headerFade {
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+   } 
+}
+
  .header h1 {
    font-size: 4rem;
    margin-bottom: 20px;
+
  }
- 
+
  .header .instructions {
    max-width: 700px;
    text-align: left;
+ }
+ 
+ .header h3 {
+   animation: float 2s ease-in-out infinite;
+   opacity: 0.7;
+ }
+ 
+ @keyframes float {
+   0%, 100% { transform: translateY(0); }
+   50% { transform: translateY(6px); }
  }
  
  /* Detector */
@@ -118,28 +164,47 @@ html {
    color: var(--text-dark);
  }
  
- /* Info Section */
  .info {
-   background-color: white;
-   color: #111;
-   width: 100%;
+   background: white;
+   padding: 60px 12%;
    min-height: 100vh;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   padding: 80px 40px;
-   box-sizing: border-box;
+   font-family: 'Nunito', sans-serif;
+   color: var(--text-dark);
  }
  
  .info h1 {
-   font-size: 3rem;
-   margin-bottom: 20px;
+   font-size: 2.2rem;
+   font-weight: 700;
+   margin-bottom: 40px;
+   text-align: center;
+   color: var(--olive-petal);
  }
  
- .info p {
-   max-width: 700px;
-   font-size: 1.2rem;
+ .info-block {
+   margin-bottom: 40px;
+   padding-bottom: 10px;
+   transition: transform 0.3s ease, opacity 0.3s ease;
+ }
+ 
+ .info-block h2 {
+   font-size: 1.3rem;
+   font-weight: 600;
+   margin-bottom: 15px;
+   color: var(--peach-blossom);
+ }
+ 
+ .info-block p,
+ .info-block li {
    line-height: 1.6;
-   text-align: center;
- } 
+ }
+ 
+ .info-block ul {
+   margin-left: 20px;
+   padding-left: 0;
+ }
+
+ .info-block:hover {
+   transform: translateY(-4px);
+   opacity: 0.95;
+ }
+ 
