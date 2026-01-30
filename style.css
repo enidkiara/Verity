@@ -380,7 +380,7 @@ html {
  }
 
  .examples {
-   background: var(--artic-daisy);
+   background:#D8A48F;
    padding: 80px 20px;
    text-align: center;
  }
@@ -388,7 +388,7 @@ html {
  .examples h1 {
    font-size: 2.2rem;
    margin-bottom: 40px;
-   color: var(--olive-petal);
+   color:#EFEBCE;
  }
  
  .example-card {
