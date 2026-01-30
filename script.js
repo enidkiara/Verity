@@ -37,14 +37,17 @@
 async function analyzeText() {
     const userInput = document.getElementById("userInput");
     const resultDiv = document.getElementById("result");
+    const explanationDiv = document.getElementById("explanation");
     const text = userInput.value.trim();
   
     if (!text) {
       resultDiv.innerHTML = "Please paste some text first!";
+      explanationDiv.innerHTML = "";
       return;
     }
   
     resultDiv.innerHTML = "Asking the AI to scan...";
+    explanationDiv.innerHTML = "";
   
     try {
       const response = await fetch("/api/analyze", {
@@ -54,7 +57,6 @@ async function analyzeText() {
       });
   
       const result = await response.json();
-  
       const prediction = result[0];
       const confidence = Math.round(prediction.score * 100);
   
@@ -63,9 +65,36 @@ async function analyzeText() {
       } else {
         resultDiv.innerHTML = `✅ LOOKS SAFE (${100 - confidence}%)`;
       }
+  
+      // Explanation logic
+      const reasons = [];
+  
+      if (/http(s)?:\/\//i.test(text)) {
+        reasons.push("Contains a link, which is common in scam messages.");
+      }
+  
+      if (/urgent|immediately|act now|limited time|suspended/i.test(text)) {
+        reasons.push("Uses urgent language to pressure the reader.");
+      }
+  
+      if (/password|ssn|social security|bank|credit card/i.test(text)) {
+        reasons.push("Mentions sensitive personal information.");
+      }
+  
+      if (/verify|confirm|login|reset/i.test(text)) {
+        reasons.push("Asks the user to verify or reset an account.");
+      }
+  
+      explanationDiv.innerHTML = reasons.length
+        ? `<strong>Why this may be unsafe:</strong><ul>${reasons.map(r => `<li>${r}</li>`).join("")}</ul>`
+        : `<strong>Why this looks safe:</strong><ul>
+            <li>No suspicious links detected</li>
+            <li>No urgent language</li>
+            <li>No personal info requests</li>
+          </ul>`;
+  
     } catch (err) {
       console.error(err);
       resultDiv.innerHTML = "Error talking to AI.";
     }
   }
-  

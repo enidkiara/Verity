@@ -23,7 +23,7 @@
         <li>Get an instant safety rating and protection tips.</li>
       </ol>
     </div>
-    <h3>↓ scroll to learn more ↓</h3>
+    <h3>↓ scroll to try it out! ↓</h3>
     </div>
   </section>
 
@@ -32,48 +32,171 @@
     <textarea id="userInput" placeholder="Paste suspicious message here..."></textarea>
     <button class="analyze-btn" onclick="analyzeText()">Analyze for Threats</button>
     <div id="result"></div>
+    <div id="explanation"></div>
   </section>
 
   <!-- Info Section (Scam Education) -->
 <section class="info">
-    <h1>Stay Safe From Online Scams</h1>
+    <h1>Verity Safety Guide: Protect Yourself From Online Scams</h1>
   
     <div class="info-block">
-      <h2>🔍 Common Signs of a Scam</h2>
-      <ul>
-        <li><strong>Urgency or pressure:</strong> “Act now or your account will be closed.”</li>
-        <li><strong>Requests for personal info:</strong> Passwords, SSN, bank details, or codes.</li>
-        <li><strong>Unusual sender addresses:</strong> Misspelled domains or random numbers.</li>
-        <li><strong>Suspicious links:</strong> URLs that don’t match the real company website.</li>
-        <li><strong>Too-good-to-be-true offers:</strong> Free money, prizes, or refunds you never requested.</li>
-      </ul>
-    </div>
-  
-    <div class="info-block">
-      <h2>🛡️ How Scammers Try to Trick You</h2>
-      <p>Scammers often impersonate trusted companies, government agencies, or even your friends. They use emotional manipulation — fear, excitement, or confusion — to make you act quickly without thinking.</p>
-      <p>Verity helps you slow down, analyze the message, and understand whether it’s legitimate.</p>
-    </div>
-  
-    <div class="info-block">
-      <h2>✔️ What To Do If You’re Unsure</h2>
-      <ul>
-        <li>Verify the sender by contacting the company directly.</li>
-        <li>Never click unknown links or download attachments.</li>
-        <li>Do not share verification codes with anyone.</li>
-        <li>Use Verity to analyze suspicious messages before responding.</li>
-      </ul>
-    </div>
-  
-    <div class="info-block">
-      <h2>🚨 If You Think You’ve Been Scammed</h2>
-      <ul>
-        <li>Change your passwords immediately.</li>
-        <li>Enable two-factor authentication on important accounts.</li>
-        <li>Contact your bank if financial information was shared.</li>
-        <li>Report the scam to your local authorities or fraud center.</li>
-      </ul>
-    </div>
+        <div class="icon"><i data-feather="shield"></i></div>
+        <h2>Stay Safe From Online Scams</h2>
+        <p>Scammers aren’t just sending random messages — they’re trying to:</p>
+        <ul>
+          <li>Steal your identity</li>
+          <li>Gain access to your accounts</li>
+          <li>Trick you into sending money</li>
+          <li>Install malware on your device</li>
+          <li>Capture your login or verification codes</li>
+        </ul>
+        <p>Understanding their goal helps you recognize the tactics they use.</p>
+      </div>
+
+      <div class="info-block">
+        <div class="icon"><i data-feather="alert-triangle"></i></div>
+        <h2>Common Scam Tactics (and How They Work)</h2>
+      
+        <h3>A. Urgency + Fear</h3>
+        <p>Scammers create panic so you act without thinking.</p>
+        <ul>
+          <li>“Your bank account will be closed in 24 hours.”</li>
+          <li>“We detected suspicious activity — verify now.”</li>
+        </ul>
+        <p><strong>Why it works:</strong> Fear overrides logic. Real companies rarely use threats.</p>
+
+        <h3>B. Impersonation</h3>
+        <p>They pretend to be:</p>
+        <ul>
+          <li>Banks</li>
+          <li>Government agencies</li>
+          <li>Delivery services</li>
+          <li>Tech support</li>
+          <li>Friends or family</li>
+        </ul>
+        <p><strong>How they fake legitimacy:</strong></p>
+        <ul>
+          <li>Spoofed phone numbers</li>
+          <li>Fake email domains</li>
+          <li>Copied logos and formatting</li>
+        </ul>
+      
+        <h3>C. Fake Links + Login Pages</h3>
+        <p>These pages look identical to real websites but steal your credentials.</p>
+        <ul>
+          <li>Extra characters in the URL</li>
+          <li>Misspelled domains</li>
+          <li>Shortened links (bit.ly, tinyurl)</li>
+        </ul>
+      
+        <h3>D. Verification Code Theft</h3>
+        <p>This is one of the fastest‑growing scam types.</p>
+        <ul>
+          <li>Scammer tries to log into your account</li>
+          <li>You receive a real verification code</li>
+          <li>They ask you to “read it back”</li>
+        </ul>
+        <p><strong>Important:</strong> No legitimate company will ever ask for your 2FA code.</p>
+      
+        <h3>E. Unexpected Attachments</h3>
+        <p>PDFs, ZIP files, or “invoices” that install malware.</p>
+        <p><strong>Rule:</strong> If you didn’t expect it, don’t open it.</p>
+      </div>
+      
+      <div class="info-block">
+        <div class="icon"><i data-feather="search"></i></div>
+        <h2>How to Check If a Message Is Legit</h2>
+      
+        <h3>Step 1 — Look at the sender</h3>
+        <ul>
+          <li>Does the email domain match the real company</li>
+          <li>Is the phone number suspicious</li>
+          <li>Does the name look slightly off</li>
+        </ul>
+      
+        <h3>Step 2 — Read the tone</h3>
+        <ul>
+          <li>Is it threatening</li>
+          <li>Is it overly urgent</li>
+          <li>Is it asking for personal info</li>
+        </ul>
+      
+        <h3>Step 3 — Inspect the links</h3>
+        <p>Hover over them (don’t click) and check the real URL.</p>
+      
+        <h3>Step 4 — Ask yourself: Did I initiate this</h3>
+        <p>Real companies rarely contact you out of nowhere.</p>
+      </div>
+      
+      <div class="info-block">
+        <div class="icon"><i data-feather="help-circle"></i></div>
+        <h2>What To Do If You're Unsure</h2>
+        <ul>
+          <li>Don’t click anything</li>
+          <li>Don’t reply</li>
+          <li>Don’t share codes or passwords</li>
+          <li>Go to the official website manually</li>
+          <li>Call the company using their real number</li>
+          <li>Paste the message into Verity for analysis</li>
+        </ul>
+        <p>If something feels off, trust that feeling.</p>
+      </div>
+      
+      <div class="info-block">
+        <div class="icon"><i data-feather="alert-octagon"></i></div>
+        <h2>If You Think You’ve Been Scammed</h2>
+      
+        <h3>Immediate Actions</h3>
+        <ul>
+          <li>Change your passwords</li>
+          <li>Enable two‑factor authentication</li>
+          <li>Log out of all devices</li>
+          <li>Freeze your credit card if needed</li>
+        </ul>
+      
+        <h3>Check for Damage</h3>
+        <ul>
+          <li>Look for unknown logins</li>
+          <li>Review recent transactions</li>
+          <li>Check your email forwarding rules</li>
+        </ul>
+      
+        <h3>Report It</h3>
+        <ul>
+          <li>Contact your bank</li>
+          <li>Notify the platform (PayPal, Amazon, Apple, etc.)</li>
+          <li>File a report with your local fraud center</li>
+        </ul>
+      </div>
+      
+      <div class="info-block">
+        <div class="icon"><i data-feather="cpu"></i></div>
+        <h2>How Verity Helps Protect You</h2>
+        <p>Verity analyzes messages for:</p>
+        <ul>
+          <li>Identity theft patterns</li>
+          <li>Urgency manipulation</li>
+          <li>Suspicious links</li>
+          <li>Impersonation attempts</li>
+          <li>Language markers common in scam operations</li>
+        </ul>
+        <p>It gives you a risk rating so you can slow down and make a safe decision.</p>
+      </div>
+      
+      <div class="info-block">
+        <div class="icon"><i data-feather="lock"></i></div>
+        <h2>Long‑Term Safety Habits</h2>
+        <ul>
+          <li>Use strong, unique passwords</li>
+          <li>Turn on 2FA everywhere</li>
+          <li>Keep your device updated</li>
+          <li>Avoid public Wi‑Fi for sensitive accounts</li>
+          <li>Never reuse passwords</li>
+          <li>Store recovery codes safely</li>
+        </ul>
+        <p>Small habits = big protection.</p>
+      </div>
+      
   </section>
   
 
