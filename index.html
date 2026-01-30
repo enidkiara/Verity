@@ -32,6 +32,13 @@
     <textarea id="userInput" placeholder="Paste suspicious message here..."></textarea>
     <button class="analyze-btn" onclick="analyzeText()">Analyze for Threats</button>
     <div id="result"></div>
+    <div id="risk-meter">
+        <div class="risk-label">Risk level</div>
+        <div class="risk-bar">
+          <div class="risk-fill"></div>
+        </div>
+        <div class="risk-percent">0%</div>
+      </div>      
     <div id="explanation"></div>
   </section>
 
@@ -199,6 +206,44 @@
       
   </section>
   
+  <section class="examples">
+    <h1>Common Scam Examples</h1>
+  
+    <div class="example-card danger">
+      <h3>🚚 Fake Delivery Message</h3>
+      <p>
+        “Your package is on hold. Click the link below to confirm your address.”
+      </p>
+      <ul>
+        <li>Uses urgency</li>
+        <li>Contains suspicious link</li>
+        <li>Pretends to be a delivery service</li>
+      </ul>
+    </div>
+  
+    <div class="example-card warning">
+      <h3>🔐 Account Suspension Email</h3>
+      <p>
+        “We noticed unusual activity. Verify your account to avoid suspension.”
+      </p>
+      <ul>
+        <li>Threatens account loss</li>
+        <li>Requests login verification</li>
+      </ul>
+    </div>
+  
+    <div class="example-card safe">
+      <h3>✅ Legitimate Message</h3>
+      <p>
+        “Your appointment is confirmed for Tuesday at 3pm.”
+      </p>
+      <ul>
+        <li>No links</li>
+        <li>No personal info requested</li>
+        <li>Neutral language</li>
+      </ul>
+    </div>
+  </section>  
 
   <script src="script.js"></script>
 </body>

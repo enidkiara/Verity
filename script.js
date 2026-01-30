@@ -66,6 +66,24 @@ async function analyzeText() {
         resultDiv.innerHTML = `✅ LOOKS SAFE (${100 - confidence}%)`;
       }
   
+      const riskFill = document.querySelector(".risk-fill");
+    const riskPercent = document.querySelector(".risk-percent");
+
+    const risk = prediction.label === "LABEL_1"
+        ? confidence
+        : 100 - confidence;
+
+    riskFill.style.width = risk + "%";
+    riskPercent.textContent = risk + "% risk";
+
+    if (risk < 30) {
+        riskFill.style.background = "var(--olive-petal)";
+    } else if (risk < 60) {
+        riskFill.style.background = "var(--golden-clover)";
+    } else {
+        riskFill.style.background = "var(--peach-blossom)";
+    }
+
       // Explanation logic
       const reasons = [];
   
