@@ -122,10 +122,10 @@ function quizAnswer(isScam) {
     alertBox.classList.remove("hidden");
 
     if(isScam) {
-        alertBox.textContent = "Correct! This message uses prize as bait, a common scam tactic.";
+        alertBox.textContent = "Correct! This email uses urgency, threats, and a fake sender address to pressure you into clicking a link";
         alertBox.className = "site-alert correct";
     } else {
-        alertBox.textContent = "Oops! Unexpected prizes are a major red flag.";
+        alertBox.textContent = "Not quite. Legitimate companies don't threaten account suspension or ask you to verify through urgent emails";
         alertBox.className = "site-alert wrong"
     }
 }

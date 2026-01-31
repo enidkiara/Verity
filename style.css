@@ -464,10 +464,8 @@ html {
 
  .site-alert.correct {
    background: rgba(163, 163, 128, 0.35);
-   border-left: 6px solid var(--olive-petal);
  }
 
  .site-alert.wrong {
-   background: rgba(216,164,143,0,4);
-   border-left: 6px solid var(--peach-blossom);
+   background: rgba(216,164,143,0.35);
  }
