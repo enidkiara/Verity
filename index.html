@@ -216,11 +216,14 @@
       
   </section>
   
-  <section class="mini-quiz">
+  <section class="quiz">
     <h1>Can you spot the scam?</h1>
     <p>"You won a prize! Click here to claim it."</p>
-    <button class="analyze-btn" onclick="alert('Correct! This is likely a scam.')">Scam</button>
-    <button class="analyze-btn" onclick="alert('Oops! Thats risky.')">Safe</button>
+    <div class="quiz-options">
+        <button class="analyze-btn" onclick="quizAnswer(true)">Scam</button>
+        <button class="analyze-btn" onclick="quizAnswer(false)">Safe</button>
+    </div>
+    <div id="quiz-alert" class="site-alert hidden"></div>
   </section>
 
   <section class="examples">

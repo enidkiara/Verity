@@ -116,3 +116,16 @@ async function analyzeText() {
       resultDiv.innerHTML = "Error talking to AI.";
     }
   }
+
+function quizAnswer(isScam) {
+    const alertBox = document.getElementById("quiz-alert")
+    alertBox.classList.remove("hidden");
+
+    if(isScam) {
+        alertBox.textContent = "Correct! This message uses prize as bait, a common scam tactic.";
+        alertBox.className = "site-alert correct";
+    } else {
+        alertBox.textContent = "Oops! Unexpected prizes are a major red flag.";
+        alertBox.className = "site-alert wrong"
+    }
+}
