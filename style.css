@@ -417,6 +417,7 @@ html {
    gap: 40px;
    flex-wrap: wrap;
    padding: 60px 20px;
+   align-items: stretch;
  }
 
  .stat {
@@ -426,6 +427,12 @@ html {
    border-radius: 16px;
    text-align: center;
    max-width: 260px;
+   transition: transform 0.3s ease, opacity 0.3s ease;
+ }
+
+ .stat:hover {
+   transform: translate(-6px);
+   opacity: 0.95;
  }
 
  .stat h2 {
