@@ -1,43 +1,46 @@
-# Astro Starter Kit: Minimal
+# Verity — AI Scam & Identity Theft Detector
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Verity is a web app that helps you identify scam emails, phishing messages, and identity theft attempts before they cause harm. Paste any suspicious message and get an instant AI-powered safety rating.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## What It Does
 
-Inside of your Astro project, you'll see the following folders and files:
+Verity analyzes text messages and emails for common scam patterns, including:
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- **Suspicious links** — flags URLs commonly used in phishing attacks
+- **Urgency language** — detects phrases like "act now", "suspended", or "immediately"
+- **Sensitive info requests** — catches messages asking for passwords, SSNs, bank info, or credit card details
+- **Verification/login prompts** — identifies fake login or account reset attempts
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+It returns a **risk score**, a **safety rating**, and a plain-English explanation of why a message looks dangerous or safe.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
+## How It Works
 
-## 🧞 Commands
+1. Paste a suspicious email or text into the Verity Detector
+2. Click **Analyze for Threats**
+3. Verity sends the text to an AI model (Facebook BART, via HuggingFace) for zero-shot classification
+4. A heuristic layer runs in parallel to catch common scam patterns
+5. You get a risk percentage, a color-coded risk meter, and a breakdown of red flags
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Tech Stack
 
-## 👀 Want to learn more?
+- **Frontend** — Astro, vanilla JS, CSS
+- **Backend** — Astro API route (`/api/analyze`)
+- **AI Model** — `facebook/bart-large-mnli` via HuggingFace Inference Router
+- **Deployment** — Vercel (serverless, Node runtime)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+## Features
+
+- AI + heuristic hybrid detection for better accuracy
+- Risk meter with color-coded levels (safe / warning / danger)
+- Explanation of exactly why a message was flagged
+- Built-in scam education guide covering common tactics
+- Interactive quiz to test your scam-spotting skills
+- Real scam examples with annotations
