@@ -9,7 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.17.1"
+    "astro": "^5.17.1",
+    "dotenv": "^17.2.4"
   },
   "devDependencies": {
     "@astrojs/vercel": "^9.0.4"
