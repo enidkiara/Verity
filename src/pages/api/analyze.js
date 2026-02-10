@@ -1,22 +1,32 @@
-export default async function handler(req, res) {
-    if (req.method !== "POST") {
-      return res.status(405).json({ error: "Method not allowed" });
-    }
-  
-    const { text } = req.body;
-  
+export const prerender = false;
+console.log("HF KEY EXISTS:", !!process.env.HF_API_KEY);
+
+export async function POST({ request }) {
+  try {
+    const { text } = await request.json();
+
     const hfRes = await fetch(
-      "https://api-inference.huggingface.co/models/phishbot/ScamLLM",
+      "https://router.huggingface.co/hf-inference/models/phishbot/ScamLLM",
       {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${process.env.HF_TOKEN}`,
-          "Content-Type": "application/json"
+          Authorization: `Bearer ${process.env.HF_API_KEY}`,
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ inputs: text })
+        body: JSON.stringify({ inputs: text }),
       }
     );
-  
+
     const data = await hfRes.json();
-    res.status(200).json(data);
+
+    return new Response(JSON.stringify(data), {
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err) {
+    console.error(err);
+    return new Response(JSON.stringify({ error: "Failed to call API" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
+}

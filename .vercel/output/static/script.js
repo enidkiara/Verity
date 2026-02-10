@@ -93,6 +93,7 @@ function quizAnswer(isScam) {
         alertBox.className = "site-alert wrong"
     }
 }*/
+
 async function analyzeText() {
   const userInput = document.getElementById("userInput");
   const resultDiv = document.getElementById("result");
@@ -118,44 +119,26 @@ async function analyzeText() {
     const data = await response.json();
     console.log(data); // check the response
 
+    // Hugging Face might return { error: "..."} if token is missing or busy
     if (!data || data.error) {
       resultDiv.innerHTML = "Error from AI: " + (data?.error || "Unknown error");
       return;
     }
 
+    // Safely access prediction
     const prediction = Array.isArray(data) ? data[0] : data;
-    const confidence = Math.round(prediction.score * 100);
-
-    const label = String(prediction.label).toLowerCase();
-    const isScam = label.includes("scam") || label.includes("phish");
-
-    if (isScam) {
-      resultDiv.innerHTML = `⚠️ SCAM DETECTED (${confidence}%)`;
-    } else {
-      resultDiv.innerHTML = `✅ LOOKS SAFE (${confidence}%)`;
-}
-
-resultDiv.style.opacity = "1";
-resultDiv.style.transform = "translateY(0)";
-
-
-    /*const prediction = Array.isArray(data) ? data[0] : data;
     const confidence = Math.round(prediction.score * 100);
 
     if (prediction.label === "LABEL_1") {
       resultDiv.innerHTML = `⚠️ SCAM DETECTED (${confidence}%)`;
-      resultDiv.style.opacity = "1";
-      resultDiv.style.transform = "translateY(0)";
     } else {
       resultDiv.innerHTML = `✅ LOOKS SAFE (${100 - confidence}%)`;
-      resultDiv.style.opacity = "1";
-      resultDiv.style.transform = "translateY(0)";
-    }*/
+    }
 
+    // Update risk meter
     const riskFill = document.querySelector(".risk-fill");
     const riskPercent = document.querySelector(".risk-percent");
-    /*const risk = prediction.label === "LABEL_1" ? confidence : 100 - confidence;*/
-    const risk = isScam ? confidence : 100 - confidence;
+    const risk = prediction.label === "LABEL_1" ? confidence : 100 - confidence;
 
     riskFill.style.width = risk + "%";
     riskPercent.textContent = risk + "% risk";
@@ -164,6 +147,7 @@ resultDiv.style.transform = "translateY(0)";
     else if (risk < 60) riskFill.style.background = "var(--golden-clover)";
     else riskFill.style.background = "var(--peach-blossom)";
 
+    // Explanation logic
     const reasons = [];
     if (/http(s)?:\/\//i.test(text)) reasons.push("Contains a link, which is common in scam messages.");
     if (/urgent|immediately|act now|limited time|suspended/i.test(text))
@@ -182,9 +166,6 @@ resultDiv.style.transform = "translateY(0)";
   } catch (err) {
     console.error(err);
     resultDiv.innerHTML = "Error talking to AI.";
-    resultDiv.style.opacity = "1";
-    resultDiv.style.transform = "translateY(0)";
-
   }
 }
 
@@ -202,7 +183,3 @@ function quizAnswer(isScam) {
     alertBox.className = "site-alert wrong";
   }
 }
-
-// 🔹 Attach functions to window so HTML buttons can access them
-window.analyzeText = analyzeText;
-window.quizAnswer = quizAnswer;
